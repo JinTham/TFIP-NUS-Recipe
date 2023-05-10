@@ -1,0 +1,15 @@
+<div *ngIf="recipe">
+    <h1>{{recipe.name}}</h1>
+    <hr>
+    <h3>Ingredients</h3>
+    <ol>
+        <li *ngFor="let i of recipe.ingredientsArr">
+            {{i}}
+        </li>
+    </ol>
+    <br>
+    <h3>Instruction</h3>
+    <p>{{recipe.instruction}}</p>
+    <button type="button" [routerLink]="['/']">Back</button>
+</div>
+    

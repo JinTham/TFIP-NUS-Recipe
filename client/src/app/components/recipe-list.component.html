@@ -1,0 +1,15 @@
+<h1>Recipe List</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <td><strong>Recipes: </strong></td>
+        </tr>
+    </thead>
+    <tbody *ngFor="let recipe of recipes">
+        <tr>
+            <td [routerLink]="['/recipe',recipe.id]">{{recipe.name}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<button type="button" [routerLink]="['/add']">Add</button>

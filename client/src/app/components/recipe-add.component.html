@@ -1,0 +1,44 @@
+<h1>Add Recipe</h1>
+
+<form [formGroup]="form" (ngSubmit)="processForm()">
+    <table>
+        <tr>
+            <td>Title</td>
+        </tr>
+        <tr>
+            <td> <input type="text" formControlName="name"></td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <td>Ingredients</td>
+                <td><button type="button" (click)="addIngredient()">+</button></td>
+            </tr>
+        </thead>
+        <tbody formArrayName="ingredientsArr">
+            <tr *ngFor="let ingredient of ingredientsArr.controls; let idx = index">
+                <td>
+                    <input type="text" [formControlName]="idx">
+                </td>
+                <td><button type="button" (click)="removeIngredient(idx)">x</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <td>Instruction</td>
+        </tr>
+        <tr>
+            <td><textarea col=30 row=10 formControlName="instruction" placeholder="Add instruction"></textarea></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td><button type="button" [routerLink]="['/']">Back</button></td>
+            <td><button type="submit" [disabled]="form.invalid">Save</button></td>
+        </tr>
+    </table>
+</form>
